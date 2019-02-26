@@ -7,65 +7,62 @@
 	<script src="jquery-3.3.1.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	<style>
-		ul,li{
-			list-style: none;
+		body {
+		  padding-top: 50px;
 		}
-		.a{
-			text-decoration: none;
+		.page-header{
+			margin-top: 20px;
 		}
-		.dh{
-			margin-bottom: 0;
+		.sidebar {
+		  display: none;
 		}
-		.zuo{
-			background-color: #ccc;
-			height: 726px;
-			padding: 0;
-			padding-top: 20px;
-		}
-		.zuo ul{
-			padding: 0;
-		}
-		.zuo ul li{
-			padding-left: 20px;
-		}
-		.zuo a{
-			color: #1194EDFF;
-			height: 34px;
-			line-height: 34px;
-		}
-		.zuo li:hover,.l1{
-			background-color: #1194EDFF;
-		}
-		.zuo li:hover a,.l1 a{
-			color: #fff;
+		@media (min-width: 768px) {
+		  .sidebar {
+		    position: fixed;
+		    top: 51px;
+		    bottom: 0;
+		    left: 0;
+		    z-index: 1000;
+		    display: block;
+		    padding: 20px;
+		    overflow-x: hidden;
+		    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+		    background-color: #f5f5f5;
+		    border-right: 1px solid #eee;
+		  }
 		}
 
-		.bt{
-			margin-top: 0;
-			padding: 0;
+		/* Sidebar navigation */
+		.nav-sidebar {
+		  margin-right: -21px; /* 20px padding + 1px border */
+		  margin-bottom: 20px;
+		  margin-left: -20px;
 		}
-		/* .jgk p{
-			height: 50px;
-			line-height: 50px;
-			padding-left: 20px;
-			border-radius:5px;
-			margin-bottom: 15px;
-		} */
-		.abcd li{
-			background-color: #D9EDF7FF;
-			border-radius:5px;
-			margin-bottom: 15px;
+		.nav-sidebar > li > a {
+		  padding-right: 20px;
+		  padding-left: 20px;
+		}
+		.nav-sidebar > .active > a,
+		.nav-sidebar > .active > a:hover,
+		.nav-sidebar > .active > a:focus {
+		  color: #fff;
+		  background-color: #428bca;
 		}
 	</style>
 </head>
 <body>
 	<!-- 导航 -->
-	<nav class="navbar navbar-inverse dh">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 				<a href="#" class="navbar-brand">某管理系统</a>
 			</div>
-			<div>
+			<div class="collapse navbar-collapse" id="example-navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">首页</a></li>
 					<li class="dropdown">
@@ -85,78 +82,79 @@
 					</li>
 					<li><a href="#">帮助</a></li>
 				</ul>
+					<form class="navbar-form navbar-right">
+				        <div class="form-group">
+				            <input type="text" class="form-control" placeholder="用户名">
+				        </div>
+				        <div class="form-group">
+				            <input type="password" class="form-control" placeholder="密码">
+				        </div>
+				        <button type="submit" class="btn btn-default">登录</button>
+				    </form>
 			</div>
-			<form class="navbar-form navbar-right">
-		        <div class="form-group">
-		            <input type="text" class="form-control" placeholder="用户名">
-		        </div>
-		        <div class="form-group">
-		            <input type="password" class="form-control" placeholder="密码">
-		        </div>
-		        <button type="submit" class="btn btn-default">登录</button>
-		    </form>
+			
 		</div>
 	</nav>
 
 	<!-- 内容 -->
 	<div class="container-fluid">
 		<div class="row">
-			<div class="zuo hidden-xs col-sm-3 col-md-3">
-				<ul>
-					<li class="l1"><a href="#">首页</a></li>
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">首页</a></li>
 				</ul>
-				<ul>
+				<ul class="nav nav-sidebar">
 					<li><a href="#">信息建立</a></li>
 					<li><a href="#">信息查询</a></li>
 					<li><a href="#">信息管理</a></li>
 				</ul>
-				<ul>
+				<ul class="nav nav-sidebar">
 					<li><a href="#">设置</a></li>
 					<li><a href="#">帮助</a></li>
 				</ul>
 			</div>
-			<div class="you col-sm-9 col-md-9">
-				<div class="page-header bt">
-					<h2>管理控制台</h2>
-				</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+				
+				<h1 class="page-header">管理控制台</h1>
+				
 				<p>
-					<button type="button" class="btn btn-default">操作1</button>
-					<button type="button" class="btn btn-primary">操作2</button>
-					<button type="button" class="btn btn-success">操作3</button>
-					<button type="button" class="btn btn-info">操作4</button>
-					<button type="button" class="btn btn-warning">操作5</button>
-					<button type="button" class="btn btn-danger">操作6</button>
+					<button type="button" class="btn btn-default btn-lg">操作1</button>
+					<button type="button" class="btn btn-primary btn-lg">操作2</button>
+					<button type="button" class="btn btn-success btn-lg">操作3</button>
+					<button type="button" class="btn btn-info btn-lg">操作4</button>
+					<button type="button" class="btn btn-warning btn-lg">操作5</button>
+					<button type="button" class="btn btn-danger btn-lg">操作6</button>
 				</p>
 				<div class="row">
-					<div class="col-xs-12 col-md-6">
+					<div class="col-md-6">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h3 class="panel-title">最新提醒</h3>
 							</div>
-							<div class="panel-body jgk">
-								<p class="alert alert-success"><b>提示</b> 您的订单（2014001）已经审批通过！</p>
-								<p class="alert alert-danger"><b>提示</b> 您的订单（2014002）被打回！</p>
-								<p class="alert alert-warning"><b>提示</b> 您的订单（2013001）客户付款延迟！</p>
+							<div class="panel-body">
+								<p class="alert alert-success"><strong>提示</strong> 您的订单（2014001）已经审批通过！</p>
+								<p class="alert alert-danger"><strong>提示</strong> 您的订单（2014002）被打回！</p>
+								<p class="alert alert-warning"><strong>提示</strong> 您的订单（2013001）客户付款延迟！</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-md-6">
+					<div class="col-md-6">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h3 class="panel-title">我的任务</h3>
 							</div>
 							<div class="panel-body">
-								<ul class="nav nav-pills nav-stacked abcd">
-								  <li role="presentation"><a href="#">订单审批<span class="badge pull-right">42</span></a></li>
-								  <li role="presentation"><a href="#">收款确认<span class="badge pull-right">20</span></a></li>
-								  <li role="presentation"><a href="#">付款确认<span class="badge pull-right">10</span></a></li>
+								<ul class="nav nav-pills nav-stacked">
+								  <li role="presentation"><a class="alert alert-info" href="#">订单审批<span class="badge pull-right">42</span></a></li>
+								  <li role="presentation"><a class="alert alert-info" href="#">收款确认<span class="badge pull-right">20</span></a></li>
+								  <li role="presentation"><a class="alert alert-info" href="#">付款确认<span class="badge pull-right">10</span></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-12 col-md-6">
+					<div class="col-md-6">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h3 class="panel-title">最新订单</h3>
@@ -196,7 +194,7 @@
 								    </tr>
 								  </tbody>
 								</table>
-								<button class="btn btn-primary" type="button">查看明细 <span class="glyphicon glyphicon-menu-right" style="font-size:2px;"></span><span class="glyphicon glyphicon-menu-right" style="font-size:2px;margin-left:-6px;"></span></button>
+								<button class="btn btn-primary" type="button">查看明细 &raquo;</button>
 							</div>
 						</div>
 					</div>
